@@ -20,4 +20,4 @@ player.setCurrentTime(dataTimeInSeconds).then(function (seconds) {
 
 player.on('timeupdate', throttle((data) => {
   localStorage.setItem(TIME_UPDATE_KEY, JSON.stringify(data))
-}, 1000))
+}, 100))
