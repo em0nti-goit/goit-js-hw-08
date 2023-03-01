@@ -17,12 +17,13 @@ try {
 }
 
 function inputTextHandler() {
-  localStorage.setItem(FEEDBACK_KEY, JSON.stringify({ email: email.value, message: message.value }));
+  localStorage.setItem(FEEDBACK_KEY, JSON.stringify({ email: email.value.trim(), message: message.value.trim() }));
 }
 
 function submitFormHandler(e) {
   e.preventDefault();
-  console.log({ email: email.value, message: message.value });
+  if (!(email.value.trim() && message.value.trim())) return;
+  console.log({ email: email.value.trim(), message: message.value.trim() });
   feedbackFormRef.reset();
   localStorage.removeItem(FEEDBACK_KEY);
 }
